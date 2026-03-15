@@ -11,12 +11,11 @@ export default function AppsJson() {
     const liveApps = allApps.filter(a => a.status === 'approved');
     
     const formattedApps = liveApps.map(app => {
-      const developer = devs.find(d => d.developerId === app.developerId);
       return {
         name: app.name,
         version: app.version,
         category: app.category,
-        developer: developer ? developer.name : 'Unknown Developer',
+        developer: app.developerName || 'Unknown Developer',
         apk_url: app.apk_url,
         icon_url: app.icon_url,
         status: app.status

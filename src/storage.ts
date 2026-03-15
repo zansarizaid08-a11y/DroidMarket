@@ -8,6 +8,21 @@ const KEYS = {
 };
 
 export const storage = {
+  initialize: async () => {
+    const appsData = localStorage.getItem(KEYS.APPS);
+    if (!appsData) {
+      try {
+        const response = await fetch('./apps.json');
+        const data = await response.json();
+        if (data && data.apps) {
+          localStorage.setItem(KEYS.APPS, JSON.stringify(data.apps));
+        }
+      } catch (error) {
+        console.error('Failed to load initial apps.json', error);
+      }
+    }
+  },
+
   getDevelopers: (): Developer[] => {
     const data = localStorage.getItem(KEYS.DEVELOPERS);
     return data ? JSON.parse(data) : [];

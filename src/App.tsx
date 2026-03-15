@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link, useNavigate, useLocation } from 'react-router-dom';
 import { LayoutDashboard, Upload, ShieldCheck, LogOut, Menu, X, Rocket, Smartphone, Shield, Users } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { storage } from './storage';
@@ -158,6 +158,10 @@ function Navbar({ user, isAdmin, onLogout }: { user: Developer | null, isAdmin: 
 export default function App() {
   const [user, setUser] = useState<Developer | null>(storage.getCurrentUser());
   const [isAdmin, setIsAdmin] = useState<boolean>(storage.getAdminAuth());
+
+  useEffect(() => {
+    storage.initialize();
+  }, []);
 
   const handleLogout = () => {
     storage.setCurrentUser(null);

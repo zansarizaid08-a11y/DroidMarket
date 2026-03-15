@@ -172,6 +172,7 @@ export default function UploadPage({ user }: { user: Developer | null }) {
       const newApp: AppEntry = {
         appId,
         developerId: user!.developerId,
+        developerName: user!.name,
         name: appName,
         description,
         version,

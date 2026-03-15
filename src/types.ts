@@ -11,6 +11,7 @@ export interface AppEntry {
   appId: string;
   developerId: string;
   name: string;
+  developerName: string;
   description: string;
   version: string;
   category: string;
