@@ -168,7 +168,7 @@ export default function App() {
     storage.setAdminAuth(false);
     setUser(null);
     setIsAdmin(false);
-    window.location.href = '/';
+    // State updates will trigger redirects via useEffect in protected pages
   };
 
   return (
