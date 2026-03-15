@@ -1,0 +1,5 @@
+{
+  "name": "DroidMarket Developer Portal",
+  "description": "A comprehensive developer portal for the DroidMarket Android marketplace, featuring app submission, Telegram-based storage, and admin review.",
+  "requestFramePermissions": []
+}
